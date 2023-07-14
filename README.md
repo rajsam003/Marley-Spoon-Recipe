@@ -9,9 +9,19 @@
 
 Deployed in Vercel, here is the [demo](https://marley-spoon-recipe-c7v7ne2yp-rajsam003.vercel.app/)
 
-# How to run to run localy
+# How to run localy
 
-First, run the development server:
+First clone the repo and install the app:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+Second, run the development server:
 
 ```bash
 npm run dev
