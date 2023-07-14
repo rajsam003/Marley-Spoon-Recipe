@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { Recipe } from "@/app/types"
 import Container from "@/app/components/Container"
 import ReactMarkdown from "react-markdown"
@@ -13,13 +13,18 @@ interface RecipeProps {
 
 const Recipe: FC<RecipeProps> = ({ id, data }) => {
   const { title, photo, description, tags, chef } = data
-  const storedRating = localStorage.getItem(`recipeRating - ${id}`)
-  const initialRating = storedRating ? parseInt(storedRating) : null
-  const [rating, setRating] = useState<number | null>(initialRating)
+  const [rating, setRating] = useState<number | null>(null)
+
+  useEffect(() => {
+    const storedRating = localStorage.getItem(`recipeRating-${id}`)
+    if (storedRating) {
+      setRating(parseInt(storedRating))
+    }
+  }, [id])
 
   const handleRatingChange = (selectedRating: number) => {
     setRating(selectedRating)
-    localStorage.setItem(`recipeRating - ${id}`, selectedRating.toString())
+    localStorage.setItem(`recipeRating-${id}`, selectedRating.toString())
   }
 
   return (
@@ -69,8 +74,9 @@ const Recipe: FC<RecipeProps> = ({ id, data }) => {
               >
                 Tags
               </h2>
-              {tags?.map((tag) => (
+              {tags?.map((tag, index) => (
                 <p
+                  key={index}
                   className="
                         border 
                         rounded-lg 
