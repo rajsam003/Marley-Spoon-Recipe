@@ -5,6 +5,8 @@ import { Recipe } from "@/app/types"
 import Container from "@/app/components/Container"
 import ReactMarkdown from "react-markdown"
 import { FaStar, FaRegStar } from "react-icons/fa"
+import { IoIosArrowRoundBack } from "react-icons/io"
+import { useRouter } from "next/navigation"
 
 interface RecipeProps {
   id: string
@@ -14,6 +16,7 @@ interface RecipeProps {
 const Recipe: FC<RecipeProps> = ({ id, data }) => {
   const { title, photo, description, tags, chef } = data
   const [rating, setRating] = useState<number | null>(null)
+  const router = useRouter()
 
   useEffect(() => {
     const storedRating = localStorage.getItem(`recipeRating-${id}`)
@@ -27,8 +30,29 @@ const Recipe: FC<RecipeProps> = ({ id, data }) => {
     localStorage.setItem(`recipeRating-${id}`, selectedRating.toString())
   }
 
+  const handleGoBack = () => {
+    router.back()
+  }
+
   return (
     <Container>
+      <button
+        onClick={handleGoBack}
+        className="
+          small
+          flex 
+          border 
+          rounded 
+          w-20 
+          px-2
+          mb-5
+          shadow-sm
+          md:hidden
+          "
+      >
+        <IoIosArrowRoundBack size={25} />
+        Back
+      </button>
       <div
         className="
             grid
@@ -47,7 +71,7 @@ const Recipe: FC<RecipeProps> = ({ id, data }) => {
         <img
           src={`https:${photo?.fields.file.url}`}
           alt={title}
-          className="w-full md:max-w-2xl h-auto rounded-md"
+          className="w-full md:max-w-2xl h-auto rounded-md shadow-md"
         />
         <div
           className="
@@ -82,6 +106,7 @@ const Recipe: FC<RecipeProps> = ({ id, data }) => {
                         rounded-lg 
                         p-1  
                         mr-2
+                        shadow-sm
                         "
                 >
                   {tag.fields.name}

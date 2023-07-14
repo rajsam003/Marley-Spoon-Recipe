@@ -21,6 +21,7 @@ const ListingCard: FC<ListingCardProps> = ({ id, data }) => {
         cursor-pointer 
         group 
         flex
+        shadow-sm
         "
     >
       <div
