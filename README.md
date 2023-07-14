@@ -2,12 +2,12 @@
 
 |Web|Mobile|
 |---|---|
-|![image](https://github.com/rajsam003/Marley-Spoon-Recipe/assets/17421923/6f389b0f-8b04-4c30-8ee4-44a42f43da81)|![image](https://github.com/rajsam003/Marley-Spoon-Recipe/assets/17421923/01b57f64-6c44-417e-90b1-aca6bc7a1ec3)|
+|![image](https://github.com/rajsam003/Marley-Spoon-Recipe/assets/17421923/6f389b0f-8b04-4c30-8ee4-44a42f43da81)|![image](https://github.com/rajsam003/Marley-Spoon-Recipe/assets/17421923/c02b4e75-3077-44b4-a78b-b286207ede90)|
 
 
 
 
-Deployed in Vercel, here is the [demo](https://marley-spoon-recipe.vercel.app/)
+Deployed in Vercel, here is the [demo](https://marley-spoon-recipe-c7v7ne2yp-rajsam003.vercel.app/)
 
 # How to run to run localy
 
